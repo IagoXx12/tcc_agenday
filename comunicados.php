@@ -169,69 +169,12 @@
   </div>
 <section >		
 	
-    	<div class="comuni">
-			<h1>Comunicados</h1>
-    	</div>
-    <div class="adm-filtro mt-5 mb-5">
-        <div class="espaco filtro-title">
-          <p>Filtrar por:</p>
-        </div>
-        <div class="espaco filtro-btn sindrome">
-          <div class="col">
-                  <div class="select-btn">
-                    <span class="btn-text" id="seltet">Selecionar Data</span>
-                    <i class="bi bi-chevron-down"></i>
-                  </div>
-                  <ul class="list-itens">
-                        <li class="item check-all" onclick="recente()">
-                          <!-- Checkbox oculto -->
-                          <input type="radio" class="checkbox dateee" name="Date" value="Recente" id="recente">
-                          <label class="checkbox-label" for="recente"></label>
-                          </span>
-                          <span class="item-text" >Recente</span>
-                        </li>
-                        <li class="item check-all" onclick="antigo()">
-                          <!-- Checkbox oculto -->
-                          <input type="radio" class="checkbox dateee" name="Date" value="Antigo" id="antigo">
-                          <label class="checkbox-label" for="antigo"></label>
-                          </span>
-                          <span class="item-text" >Antigo</span>
-                        </li>
-                  </ul>
-                </div>
-        </div>
-                <div class="espaco filtro-btn turma">
-          <div class="col">
-                  <div class="select-btn">
-                    <span class="btn-text">Selecionar Curso</span>
-                    <i class="bi bi-chevron-down"></i>
-                  </div>
-                  <ul class="list-itens" style="z-index: 3;">
-                    <li class="a" id="all-select1" style="cursor:pointer;">
-                      <label class="form-check-label" for="selectAllOptions" style="cursor:pointer;">Todos</label>
-                    </li>
-                    <?php
-                      //exibir o select
-                      $sql = "SELECT * FROM tb_turma";
-
-                      foreach ($conn->query($sql) as $item){?>
-                        <li class="item">
-                          <!-- Checkbox oculto -->
-                          <input type="checkbox" class="checkbox" name="turmasAlterar[]" value="<?php echo $item['cd_turma'];?>" id="<?php echo $item['nm_turma'];?>">
-                          <label class="checkbox-label" for="<?php echo $item['nm_turma'];?>"></label>
-                          </span>
-                          <span class="item-text"><?php echo $item['nm_turma'];?></span>
-                        </li>
-                      <?php
-                      }
-                    ?>
-                  </ul>
-                </div>
-        </div>
-	</div>
+<div class="comuni">
+	<h1>Comunicados</h1>
 </div>
+    
 <!-- search bar-->
-<div class="centro-search">
+<div class="centro-search mt-5">
 
 	<div class="inner-form">
 		<div class="input-field">
@@ -251,6 +194,8 @@
 	<span style="background:red" id="clearSearch">Limpar <i class="bi bi-x-circle-fill"></i></span>
 </div>
 </div>
+
+<!-- fim da search bar-->
 
 <!-- fim da search bar-->
 		<?php
@@ -284,11 +229,7 @@
 				<?php
 			}
 			?>	
-
-
-
-
-										</section>
+			</section>
 	</main>
 	
 	<script src="js/duvidas.js"></script>
@@ -300,19 +241,9 @@
 	<script src="js/jQuery-Mask-Plugin-master/src/jquery.mask.js"></script>
 	  <script src="js/select-comunicado.js"></script></body>
 	  <script src="js/selectcheck.js"></script></body>
-	<script>
-					function recente(){
-		var selecttexto = document.getElementById('seltet');
-		console.log(selecttexto);
-		selecttexto.innerHTML = "Mais Recente";
-   }
-					function antigo(){
-						var selecttexto = document.getElementById('seltet');
-		// console.log(selecttexto);
-		selecttexto.innerHTML = "Mais Antigo";
-   }
-	</script>
-				<SCRIpt>
+	
+</body>
+<SCRIpt>
 				  $(document).ready(function(){
     // Evento de clique para spans dentro de suggestion-wrap
     $(".suggestion-wrap span").click(function(){
@@ -366,8 +297,6 @@ const expand = () => {
 
 searchBtn.addEventListener("click", expand);
 </SCRIpt>
-</body>
-
 </html>
 <?php
     }
